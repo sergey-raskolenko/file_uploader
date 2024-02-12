@@ -19,6 +19,7 @@ class File(models.Model):
         verbose_name = 'File'
         verbose_name_plural = 'Files'
         db_table = 'file'
+        ordering = ['-uploaded_at']
 
     def __str__(self):
         return f'{self.file}: {self.uploaded_at}'
