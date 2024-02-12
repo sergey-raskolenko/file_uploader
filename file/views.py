@@ -4,6 +4,7 @@ from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.response import Response
 from file.models import File
 from file.serializers import FileListSerializer, FileUploadSerializer
+from file.tasks import file_treatment
 
 
 class FileUploadView(CreateAPIView):
@@ -16,6 +17,7 @@ class FileUploadView(CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            file_treatment(file_id=serializer.instance.id)
             return Response(
                 serializer.data,
                 status=status.HTTP_201_CREATED
