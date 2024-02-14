@@ -138,3 +138,10 @@ CELERY_TIMEZONE = "Europe/Moscow"
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 BROKER_CONNECTION_RETRY_ON_STARTUP = True
+
+ALLOWED_IMAGE_FORMATS = [
+    '.bmp', '.jpeg', '.jpg', '.png'
+]
+ALLOWED_DOCUMENT_FORMATS = [
+    '.doc', '.docx', '.pdf', '.pps', '.ppt', '.pptx', '.rtf', '.xls', '.xlsx', '.xml'
+]
